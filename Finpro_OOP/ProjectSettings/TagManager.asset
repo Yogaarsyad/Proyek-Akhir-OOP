@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wall
+  - Doors
+  - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -40,4 +44,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 279584159
+    locked: 0
+  - name: Walls and Doors
+    uniqueID: 826120979
+    locked: 0
+  - name: Collectible
+    uniqueID: 3744492189
+    locked: 0
+  - name: Enemy
+    uniqueID: 159817941
+    locked: 0
+  - name: Bullet
+    uniqueID: 2108655627
+    locked: 0
+  - name: Player
+    uniqueID: 1809127915
     locked: 0
