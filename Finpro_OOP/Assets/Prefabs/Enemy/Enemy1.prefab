@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5454478785744192746}
   - component: {fileID: 7048980397336209276}
   - component: {fileID: 6457821894771170689}
+  - component: {fileID: -1791583613841609206}
   m_Layer: 1
   m_Name: Enemy1
   m_TagString: Enemy
@@ -76,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 159817941
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1456861045, guid: 1047d2d1c0ff1b24fa7779e68c87aa00, type: 3}
+  m_Sprite: {fileID: -1312732907, guid: 21fc7fc69c3974c4491612019faf94b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.7111111, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -151,7 +152,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.7111111, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.7111111, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -168,8 +169,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 9008499301202923934}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b99079a11716524fa3639f40b042b4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f4cae1cbc7cad344a87869a36bc20dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alive: {fileID: 1456861045, guid: 1047d2d1c0ff1b24fa7779e68c87aa00, type: 3}
-  dead: {fileID: -115115214, guid: 6e2b2fc921f5d1e42a757920c3f63bf1, type: 3}
+  alive: {fileID: -1312732907, guid: 21fc7fc69c3974c4491612019faf94b1, type: 3}
+  dead: {fileID: 1812167597, guid: 663bef1943a865e40bea42fea20bbe69, type: 3}
+  target: {fileID: 0}
+--- !u!195 &-1791583613841609206
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9008499301202923934}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.35555556
+  m_Speed: 5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

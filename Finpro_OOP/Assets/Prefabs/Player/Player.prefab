@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 7183039613447719467}
   - component: {fileID: 5579860897716241944}
   - component: {fileID: 5300007678850186991}
-  - component: {fileID: 920348753269699350}
+  - component: {fileID: 9178980415050703408}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -184,7 +184,7 @@ SpriteRenderer:
   m_SortingLayerID: 1809127915
   m_SortingLayer: 6
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1801177653, guid: 4a3d898a3b214f44ca3820c2488e5435, type: 3}
+  m_Sprite: {fileID: 1279147552, guid: aa7a3af9fb430d54bb681e86e478031f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -225,11 +225,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4857606077518229640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef67493235fd9864aa26f6ea6e1236ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 0efdff8511fd69d438663bbc940be122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite1: {fileID: 1801177653, guid: 4a3d898a3b214f44ca3820c2488e5435, type: 3}
-  sprite2: {fileID: 21300000, guid: 6aea7e41eaa2c6647915946ef0a9a05e, type: 3}
+  sprite1: {fileID: 1279147552, guid: aa7a3af9fb430d54bb681e86e478031f, type: 3}
+  sprite2: {fileID: 21300000, guid: 4ca8aff8f8c67224186fe11f2c1b9c88, type: 3}
 --- !u!114 &5579860897716241944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4857606077518229640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97bd1810141b4514bb7b1c8245c499d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 8cbab208c5601a545bd067781475ebd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
@@ -253,10 +253,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4857606077518229640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6337598db2ae9240a1ef5f1a72d1eea, type: 3}
+  m_Script: {fileID: 11500000, guid: 63eafdf92584d3841976dabe2fb73d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &920348753269699350
+--- !u!114 &9178980415050703408
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -265,10 +265,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4857606077518229640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0833e4411da0f4e4f8140cc4c820c1ab, type: 3}
+  m_Script: {fileID: 11500000, guid: 9874a595d9161c1498ac9cea05d87306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 4174330130188496221, guid: 28097a9b4873a744989186a9cf4a09a2, type: 3}
+  bullet: {fileID: 4174330130188496221, guid: 1b904166be932974faa87276f2412cfc, type: 3}
   bulletSpawnPoint: {fileID: 730910651745349772}
   parentTransform: {fileID: 6287149093667848596}
   curMagSize: 15
