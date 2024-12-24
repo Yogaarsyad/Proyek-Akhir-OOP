@@ -9,6 +9,7 @@ public class WeaponAttack : MonoBehaviour
 {
     GameObject curWeapon;
     bool gun = false;
+    bool isShooting = false;
     float timer = 0.1f, reset = 0.1f;
     float weaponChange = 0.5f;
     bool canChange = true;
@@ -33,7 +34,6 @@ public class WeaponAttack : MonoBehaviour
         Assert.IsNotNull(bulletSpawnPoint);
         objectPool = new ObjectPool<Bullet>(CreateBullet, OnGetFromPool, OnReleaseToPool, OnDestroyPooledObject, collectionCheck, defaultCapacity, maxSize);
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -43,6 +43,11 @@ public class WeaponAttack : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && curWeapon != null)
         {
             Attack();
+            isShooting = true;
+        }
+        else
+        {
+            isShooting = false;
         }
         if(Input.GetMouseButtonDown(1))
         {
@@ -81,6 +86,10 @@ public class WeaponAttack : MonoBehaviour
             bulletObj.transform.SetPositionAndRotation(bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             curMagSize--;
         }
+    }
+    public bool getIsShooting()
+    {
+        return isShooting;
     }
     public GameObject getCurWeapon()
     {
