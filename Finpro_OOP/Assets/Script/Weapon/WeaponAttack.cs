@@ -10,6 +10,7 @@ public class WeaponAttack : MonoBehaviour
     GameObject curWeapon;
     bool gun = false;
     bool isShooting = false;
+    bool isReloading = false;
     float timer = 0.1f, reset = 0.1f;
     float weaponChange = 0.5f;
     bool canChange = true;
@@ -21,18 +22,19 @@ public class WeaponAttack : MonoBehaviour
 
     [Header("Bullet Pool")]
     private IObjectPool<Bullet> objectPool;
-
     private readonly bool collectionCheck = false;
     private readonly int defaultCapacity = 30;
     private readonly int maxSize = 100;
     public Transform parentTransform;
     private int magSize = 15;
     [SerializeField] private int curMagSize = 15;
+    private WeaponSFX wsfx;
     // Start is called before the first frame update
     void Start()
     {
         Assert.IsNotNull(bulletSpawnPoint);
         objectPool = new ObjectPool<Bullet>(CreateBullet, OnGetFromPool, OnReleaseToPool, OnDestroyPooledObject, collectionCheck, defaultCapacity, maxSize);
+        wsfx = Player.Instance.GetComponentInChildren<WeaponSFX>();
     }
     // Update is called once per frame
     void Update()
@@ -40,32 +42,35 @@ public class WeaponAttack : MonoBehaviour
         Debug.Log(Input.GetMouseButtonDown(0));
         Debug.Log(Input.GetMouseButtonDown(1));
         Debug.Log("Current Weapon Exist:" + curWeapon);
-        if(Input.GetMouseButtonDown(0) && curWeapon != null)
+        if(PauseMenu.isPaused == false)
         {
-            Attack();
-            isShooting = true;
-        }
-        else
-        {
-            isShooting = false;
-        }
-        if(Input.GetMouseButtonDown(1))
-        {
-            if(canChange == false && curWeapon != null)
+            if(Input.GetMouseButtonDown(0) && curWeapon != null)
             {
-                DropWeapon();
+                Attack();
+                isShooting = true;
             }
-        }
-        if(Input.GetKeyDown(KeyCode.R) && curWeapon != null)
-        {
-            StartCoroutine(reload(1.5f));
-        }
-        if(canChange)
-        {
-            weaponChange -= Time.deltaTime;
-            if(weaponChange <= 0)
+            else
             {
-                canChange = false;
+                isShooting = false;
+            }
+            if(Input.GetMouseButtonDown(1))
+            {
+                if(canChange == false && curWeapon != null)
+                {
+                    DropWeapon();
+                }
+            }
+            if(Input.GetKeyDown(KeyCode.R) && curWeapon != null && curMagSize < magSize)
+            {
+                StartCoroutine(reload(1.5f));
+            }
+            if(canChange)
+            {
+                weaponChange -= Time.deltaTime;
+                if(weaponChange <= 0)
+                {
+                    canChange = false;
+                }
             }
         }
     }
@@ -82,9 +87,14 @@ public class WeaponAttack : MonoBehaviour
         //shoot if gun
         if (gun && curMagSize > 0)
         {
+            wsfx.ShootSound();
             Bullet bulletObj = objectPool.Get();
             bulletObj.transform.SetPositionAndRotation(bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             curMagSize--;
+        }
+        else if (curMagSize <= 0 && !isReloading)
+        {
+            wsfx.EmptySound();
         }
     }
     public bool getIsShooting()
@@ -104,8 +114,11 @@ public class WeaponAttack : MonoBehaviour
     IEnumerator reload(float delay)
     {
         curMagSize = 0;
+        isReloading = true;
+        wsfx.reloading();
         yield return new WaitForSeconds(delay);
         curMagSize = magSize;
+        isReloading = false;
     }
     //Object pool methods
         private Bullet CreateBullet()

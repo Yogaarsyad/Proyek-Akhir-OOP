@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 936af5be45490e64ba135412f4eeacf3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Reload1: {fileID: 8300000, guid: 8fb864f48227cb54a911525187db5a92, type: 3}
+  - Reload2: {fileID: 8300000, guid: 7c6047f207cd65546828b9b870fab361, type: 3}
+  - RackSFX: {fileID: 8300000, guid: 03220046a0098a64ba15b271641e070b, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

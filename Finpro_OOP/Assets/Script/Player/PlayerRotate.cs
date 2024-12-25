@@ -23,6 +23,10 @@ public class PlayerRotate : MonoBehaviour
 
     void RotateToCamera()
     {
+        if (cam == null)
+        {
+            cam = Camera.main;
+        }
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         Vector2 lookDir = mousePos - transform.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;

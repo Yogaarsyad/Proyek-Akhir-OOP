@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1830522792970003201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 466825791683288536}
+  - component: {fileID: 3321175661425828546}
+  m_Layer: 0
+  m_Name: WPsfx
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &466825791683288536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830522792970003201}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6287149093667848596}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3321175661425828546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830522792970003201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 936af5be45490e64ba135412f4eeacf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Reload1: {fileID: 8300000, guid: 8fb864f48227cb54a911525187db5a92, type: 3}
+  Reload2: {fileID: 8300000, guid: 7c6047f207cd65546828b9b870fab361, type: 3}
+  RackSFX: {fileID: 8300000, guid: 03220046a0098a64ba15b271641e070b, type: 3}
+  ShootSFX: {fileID: 0}
+  EmptySFX: {fileID: 0}
 --- !u!1 &4536736855560989013
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,7 +74,7 @@ Transform:
   m_GameObject: {fileID: 4536736855560989013}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.4, y: 0, z: 0}
+  m_LocalPosition: {x: 0.409, y: -0.083, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,6 +97,7 @@ GameObject:
   - component: {fileID: 5579860897716241944}
   - component: {fileID: 5300007678850186991}
   - component: {fileID: 9178980415050703408}
+  - component: {fileID: 1689300601077531819}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -68,6 +118,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 466825791683288536}
   - {fileID: 730910651745349772}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -228,6 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0efdff8511fd69d438663bbc940be122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
   sprite1: {fileID: 1279147552, guid: aa7a3af9fb430d54bb681e86e478031f, type: 3}
   sprite2: {fileID: 21300000, guid: 4ca8aff8f8c67224186fe11f2c1b9c88, type: 3}
 --- !u!114 &5579860897716241944
@@ -272,3 +324,20 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 730910651745349772}
   parentTransform: {fileID: 6287149093667848596}
   curMagSize: 15
+--- !u!114 &1689300601077531819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4857606077518229640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 936af5be45490e64ba135412f4eeacf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Reload1: {fileID: 8300000, guid: 8fb864f48227cb54a911525187db5a92, type: 3}
+  Reload2: {fileID: 8300000, guid: 7c6047f207cd65546828b9b870fab361, type: 3}
+  RackSFX: {fileID: 8300000, guid: 03220046a0098a64ba15b271641e070b, type: 3}
+  ShootSFX: {fileID: 8300000, guid: ca7885a62d8844c46a39e2a42c720b6e, type: 3}
+  EmptySFX: {fileID: 8300000, guid: d480823d66027d446b00926c2234d2d1, type: 3}

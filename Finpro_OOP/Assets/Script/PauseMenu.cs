@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isPaused = false;
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
         gameOverScreen.SetActive(false);
@@ -56,6 +57,7 @@ public class PauseMenu : MonoBehaviour
 
     public void GameOver()
     {
+        Time.timeScale = 0f;
         gameOverScreen.SetActive(true);
     }
 
@@ -79,8 +81,10 @@ public class PauseMenu : MonoBehaviour
 
     IEnumerator ExitLevel()
     {
+        Destroy(GameObject.FindGameObjectWithTag("Enemy"));
         animationTransition.SetTrigger("End");
         yield return new WaitForSeconds(1);
+        Destroy(GameObject.FindGameObjectWithTag("Player"));
         SceneManager.LoadScene("MainMenu");
         animationTransition.SetTrigger("Start");
     }
