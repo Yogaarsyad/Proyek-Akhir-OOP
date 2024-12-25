@@ -7,12 +7,15 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject settingsMenu;
+    public GameObject gameOverScreen;
     public static bool isPaused;
+    [SerializeField] Animator animationTransition;
     // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
+        gameOverScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -46,6 +49,16 @@ public class PauseMenu : MonoBehaviour
 
     }
 
+    public void RestartGame()
+    {
+        StartCoroutine(RestartLevel());
+    }
+
+    public void GameOver()
+    {
+        gameOverScreen.SetActive(true);
+    }
+
     public void SettingsMenu()
     {
         pauseMenu.SetActive(false);
@@ -61,6 +74,22 @@ public class PauseMenu : MonoBehaviour
     public void Exit()
     {
         Time.timeScale = 1f;
+        StartCoroutine(ExitLevel());
+    }
+
+    IEnumerator ExitLevel()
+    {
+        animationTransition.SetTrigger("End");
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene("MainMenu");
+        animationTransition.SetTrigger("Start");
+    }
+
+    IEnumerator RestartLevel()
+    {
+        animationTransition.SetTrigger("End");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Play");
+        animationTransition.SetTrigger("Start");
     }
 }

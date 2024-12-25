@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public GameObject settingsButton;
     public GameObject settingsMenu;
     public GameObject mainText;
+    [SerializeField] Animator animationTransition;
 
     void Start()
     {
@@ -17,7 +18,7 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene("test");
+        StartCoroutine(LoadLevel());
     }
 
     public void ExitGame()
@@ -41,5 +42,13 @@ public class MainMenu : MonoBehaviour
         exitButton.SetActive(true);
         settingsButton.SetActive(true);
         settingsMenu.SetActive(false);
+    }
+
+    IEnumerator LoadLevel()
+    {
+        animationTransition.SetTrigger("End");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Play");
+        animationTransition.SetTrigger("Start");
     }
 }

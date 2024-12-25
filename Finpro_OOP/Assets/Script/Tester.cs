@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Tester : MonoBehaviour
 {
+    public PauseMenu pauseMenu;
     [SerializeField] private AudioClip testSoundClip;
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,8 @@ public class Tester : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             SoundFXManager.instance.PlaySoundFXClip(testSoundClip, transform, 1f);
+            pauseMenu.GameOver();
+            Debug.Log("TES");
         }
 
     }
